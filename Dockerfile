@@ -11,7 +11,7 @@ RUN apt-get install --yes git
 RUN mkdir /root/.ssh
 
 # Copy private key and set permissions
-ADD ~/.ssh/id_rsa /root/.ssh/id_rsa
+ADD /Users/abdullahali/.ssh/id_rsa /root/.ssh/id_rsa
 
 # Create known hosts
 RUN touch /root/.ssh/known_hosts
