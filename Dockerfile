@@ -2,10 +2,10 @@ FROM ubuntu
 MAINTAINER abdullah ali
 
 # Update aptitude
-apt-get update
+RUN apt-get update
 
 # Install Git
-apt-get install --yes git
+RUN apt-get install --yes git
 
 # Make ssh directory
 RUN mkdir /root/.ssh
