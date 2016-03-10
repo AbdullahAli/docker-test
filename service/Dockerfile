@@ -19,10 +19,12 @@ RUN touch /root/.ssh/known_hosts
 # Add github to known hosts
 RUN ssh-keyscan github.com >> /root/.ssh/known_hosts
 
-# Set working directory
+# Copy stuff over
 RUN mkdir /src
+COPY ./package.json src/
+RUN cd src && npm install
+COPY . /src
 WORKDIR /src
 
-# Git pull (the git clone
-ENV repo docker-test
-RUN if cd ./${repo}; then git pull; else git clone https://github.com/AbdullahAli/docker-test ${repo}; fi
+# start
+CMD ["npm", "start"]
